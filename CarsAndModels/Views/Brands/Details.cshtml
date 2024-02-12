@@ -1,0 +1,35 @@
+﻿@model CarsAndModels.Models.CarBrand
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CarBrand</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BrandName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BrandName)
+        </dd>
+    </dl>
+    <div>
+        <h5>Models</h5>
+        <table>
+            @foreach (var carModel in Model.Models)
+            {
+                <tr>
+                    <td>@carModel.ModelName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.BrandId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
